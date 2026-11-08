@@ -135,3 +135,7 @@ The default `img/cat.webp` is an animated WebP with a transparent background, so
 
 - [Monocraft](https://github.com/IdreesInc/Monocraft) by IdreesInc, licensed under OFL-1.1
 - Layout inspired by terminal-style startpages, written from scratch
+
+## License
+
+MIT, see [LICENSE](LICENSE).
