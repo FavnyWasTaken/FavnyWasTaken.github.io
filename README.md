@@ -1,5 +1,7 @@
 # startpage
 
+![screenshot](img/screenshot.png)
+
 A personal, monochrome browser startpage with a terminal-style prompt, a working DuckDuckGo search, an animated illustration and a few columns of links. Plain HTML, CSS and JavaScript, no build step, no dependencies. Hosted on GitHub Pages.
 
 Live at `https://favnywastaken.github.io`
