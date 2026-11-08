@@ -1,24 +1,35 @@
+<div align="center">
+
 # startpage
 
-![screenshot](img/screenshot.png)
+**A personal monochrome browser startpage with a terminal-style search prompt, animated art, and customizable link columns.**
 
-A personal, monochrome browser startpage with a terminal-style prompt, a working DuckDuckGo search, an animated illustration and a few columns of links. Plain HTML, CSS and JavaScript, no build step, no dependencies. Hosted on GitHub Pages.
+[![HTML](https://img.shields.io/badge/HTML-static-orange?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![No dependencies](https://img.shields.io/badge/dependencies-none-2ea44f)](#features)
+[![Hosted on GitHub Pages](https://img.shields.io/badge/hosted%20on-GitHub%20Pages-222?logo=github)](https://pages.github.com/)
 
-Live at `https://favnywastaken.github.io`
+<br>
 
-## Features
+![Startpage screenshot](img/screenshot.png)
 
-- Terminal-style prompt with a built-in DuckDuckGo search (press Enter, `!bangs` work)
-- Link columns defined in one config file
-- Animated transparent illustration on the left, replaceable from the settings
-- Monochrome theme with faint leaves and a slow background shimmer
+[**Open the live startpage →**](https://favnywastaken.github.io)
+
+</div>
+
+## ✨ Features
+
+- Terminal-style prompt with built-in DuckDuckGo search — press **Enter** to search; `!bangs` work
+- Link columns configured in a single file
+- Animated transparent illustration, replaceable in settings
+- Monochrome theme with subtle leaves and a slow background shimmer
 - Monocraft font
-- Settings panel (gear icon, bottom left) for editing everything except the font
-- Responsive layout, respects `prefers-reduced-motion`
+- Settings panel for editing the page (gear icon, bottom left)
+- Responsive layout with `prefers-reduced-motion` support
+- Plain HTML, CSS, and JavaScript — no build step or dependencies
 
-## Structure
+## 📁 Project structure
 
-```
+```text
 .
 ├── index.html
 ├── style.css
@@ -30,7 +41,7 @@ Live at `https://favnywastaken.github.io`
     └── cat.webp
 ```
 
-## Run locally
+## 🧪 Run locally
 
 ```sh
 git clone https://github.com/FavnyWasTaken/FavnyWasTaken.github.io
@@ -38,33 +49,24 @@ cd FavnyWasTaken.github.io
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000`. Run the server from inside the project folder, otherwise it only shows a directory listing.
+Open [http://localhost:8000](http://localhost:8000).
 
-## Font
+> [!TIP]
+> Run the server from inside the project folder. Otherwise, it may show a directory listing instead of the startpage.
 
-Monocraft is not committed by default. Download it into `fonts/`:
+## 🔤 Font
+
+Monocraft is not included in the repository by default. Download it into `fonts/`:
 
 ```sh
 curl -L -o fonts/Monocraft.ttf https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf
 ```
 
-Without it the page falls back to the system monospace font.
+Without the font, the page falls back to the system monospace font.
 
-## Deploy
+## ⚙️ Configuration
 
-Push to `main`. GitHub Pages serves the repository root.
-
-```sh
-git add .
-git commit -m "update"
-git push
-```
-
-If the site does not appear, check Settings → Pages: the source must be Deploy from a branch, `main`, `/ (root)`.
-
-## Configuration
-
-Defaults live in `config.js`.
+Default settings live in `config.js`:
 
 ```js
 window.CONFIG = {
@@ -78,64 +80,88 @@ window.CONFIG = {
 };
 ```
 
-| Key | What it does |
+| Key | Description |
 | --- | --- |
 | `title` | Browser tab title |
-| `prompt` | Text shown after `>` before the search field |
-| `search` | Search URL prefix, the query is appended |
-| `theme` | Background, text and leaf colors |
-| `hero` | Default illustration path and width in px |
+| `prompt` | Text shown after `>` and before the search field |
+| `search` | Search URL prefix; the query is appended to it |
+| `theme` | Background, text, and leaf colors |
+| `hero` | Default illustration path and width in pixels |
 | `sections` | Link columns |
-| `leaves` | Number of background leaves, `0` removes them |
+| `leaves` | Number of background leaves; set to `0` to remove them |
 
-### Links
+### Link sections
 
-Each section has a title, a color and a list of links:
+Each section has a title, a color, and a list of links:
 
 ```js
 {
-  title: "Tools", color: "#bdbdbd",
+  title: "Tools",
+  color: "#bdbdbd",
   links: [
     { name: "YouTube", url: "https://www.youtube.com/" },
   ],
 },
 ```
 
-Add, remove or reorder objects to change the page. A trailing `/` is added to every title by CSS.
+Add, remove, or reorder objects to customize the page. CSS adds a trailing `/` to each section title.
 
 ### Search engine
 
-Change `search` to any URL that takes the query at the end, for example `https://www.startpage.com/do/search?q=`.
+Set `search` to a URL that accepts the query at the end. For example:
+
+```js
+search: "https://www.startpage.com/do/search?q="
+```
 
 ### Colors
 
-Edit `theme` and the `color` of each section. Keep them neutral grays for the monochrome look.
+Edit `theme` and the `color` value of each section. Neutral grays work best with the monochrome look.
 
-## Settings panel
+## 🎛️ Settings panel
 
-Click the gear icon to open it, `Esc` closes it. You can change:
+Click the gear icon to open the settings panel. Press **Esc** to close it.
 
-- tab title and prompt text
-- background, text and leaf colors
-- section titles, section colors, link names and URLs, add and remove links
-- illustration size
-- illustration image (`.gif`, `.png`, `.jpg`, `.webp`), with `restore cat` to bring the default back
+You can change:
 
-Settings are saved in the browser (`localStorage` and IndexedDB), per address and per browser. They are not part of the repository and do not sync between devices or between `localhost` and `github.io`. `reset everything` at the bottom of the panel clears them.
+- Tab title and prompt text
+- Background, text, and leaf colors
+- Section titles and colors
+- Link names and URLs; add or remove links
+- Illustration size and image
 
-To make a change permanent, edit `config.js` and push.
+Supported illustration formats include `.gif`, `.png`, `.jpg`, and `.webp`. Use **restore cat** to restore the default illustration.
 
-When `config.js` changes in a way that should override saved settings, bump the `KEY` constant at the top of `script.js` (for example `startpage.v4`).
+> [!NOTE]
+> Settings are saved in the browser using `localStorage` and IndexedDB. They are stored per address and browser, and do not sync between devices or between `localhost` and `github.io`. Use **reset everything** at the bottom of the panel to clear them.
 
-## Illustration
+To make a change permanent for everyone, edit `config.js` and push the changes.
 
-The default `img/cat.webp` is an animated WebP with a transparent background, so it blends into any theme. GIF only supports on/off transparency, which leaves jagged edges, so WebP or PNG are better for transparent artwork. A replacement image with its own background is shown as is.
+If a `config.js` change needs to override saved settings, bump the `KEY` constant at the top of `script.js`—for example, change it to `startpage.v4`.
 
-## Credits
+## 🖼️ Illustration
 
-- [Monocraft](https://github.com/IdreesInc/Monocraft) by IdreesInc, licensed under OFL-1.1
-- Layout inspired by terminal-style startpages, written from scratch
+The default `img/cat.webp` is an animated WebP with a transparent background, so it blends into different themes.
 
-## License
+GIF supports only on/off transparency, which can leave jagged edges. WebP or PNG are better choices for transparent artwork. An image with its own background is displayed as-is.
 
-MIT, see [LICENSE](LICENSE).
+## 🚀 Deploy
+
+Push changes to `main`. GitHub Pages serves the repository root.
+
+```sh
+git add .
+git commit -m "Update startpage"
+git push
+```
+
+If the site does not appear, check **Settings → Pages** and make sure the source is set to **Deploy from a branch**, branch **`main`**, folder **`/ (root)`**.
+
+## 🙏 Credits
+
+- [Monocraft](https://github.com/IdreesInc/Monocraft) by IdreesInc — licensed under OFL-1.1
+- Layout inspired by terminal-style startpages; written from scratch
+
+## 📄 License
+
+MIT. See [LICENSE](LICENSE).
