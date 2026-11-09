@@ -1,6 +1,6 @@
 <div align="center">
 
-# startpage
+# Startpage </
 
 **A personal monochrome browser startpage with a terminal-style search prompt, animated art, and customizable link columns.**
 
