@@ -26,6 +26,8 @@ window.CONFIG = {
         { name: "Binternet", url: "https://bn.bloat.cat/" },
         { name: "Get Color", url: "https://get-color.com/" },
         { name: "YouTube", url: "https://www.youtube.com/" },
+        { name: "Proton AI", url: "https://lumo.proton.me/guest/" },
+        { name: "2IP", url: "https://2ip.io/" },
       ],
     },
     {
